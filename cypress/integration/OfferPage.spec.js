@@ -22,9 +22,9 @@ describe('Test offer Page', () => {
     it('TC #2 - Check that 3 offers will appear on the screen', () => {
 
 
-        cy.contains('1 jaar').first().click().should('be.visible')
-        cy.contains('3 jaar prijszeker').first().click().should('be.visible')
-        cy.contains('Variabel').first().click().should('be.visible')
+        cy.contains('1 jaar').first().click({ force: true }).should('be.visible')
+        cy.contains('3 jaar prijszeker').first().click({ force: true }).should('be.visible')
+        cy.contains('Variabel').first().click({ force: true }).should('be.visible')
 
     })
 

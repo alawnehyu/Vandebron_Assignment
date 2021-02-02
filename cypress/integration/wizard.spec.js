@@ -35,7 +35,7 @@ describe('Test Address entry', () => {
         cy.get('.Input__StyledInputLine-yt9vxy-1.gDLpSY').first().should('have.css', 'background-color', 'rgb(208, 2, 27)')// validate format change to red underline for address box
 
     })
-    describe('Wizard Test', () => {
+    context('Wizard Test', () => {
 
         beforeEach('fill address', () => {
 
@@ -109,7 +109,7 @@ describe('Test Address entry', () => {
 
 
 
-        it.only('TC #11 - should change the solar panel value in the URL for every option', () => {
+        it('TC #11 - should change the solar panel value in the URL for every option', () => {
 
             cy.get('.ab-house-button-next-step').click({ force: true })//Select one house type for the next step
             cy.get('.ab-resident-button-next-step').click({ force: true })//Select resident type for the next step
@@ -119,19 +119,17 @@ describe('Test Address entry', () => {
 
             cy.contains('Ja').click({ force: true })// select yes
             cy.contains('Volgende stap').click({ force: true })// select next
-            cy.get('[name="priceParameters.solarPanelYield"]').clear().type('2000')
+            cy.get('[name="priceParameters.solarPanelYield"]').clear({ force: true }).type('2000')
             cy.url().should('contain', `solarPanelYield=2000`)//URL should have the correct value for SolarPanelYeild
 
         })
 
         it('TC #12 - should change style while selecting solar panel value', () => {
-
             cy.get('.ab-house-button-next-step').click({ force: true })//Select one house type for the next step
             cy.get('.ab-resident-button-next-step').click({ force: true })//Select resident type for the next step
             cy.get('.ab-view-offer-button').click({ force: true })//Next.. 
             cy.contains('Nee').click({ force: true }).should('have.css', 'opacity', '1')// Select No & observe style change
             cy.contains('Ja').click({ force: true }).should('have.css', 'opacity', '1')// select yes & observe style change & observe style change
-
         })
     })
 
