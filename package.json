@@ -1,0 +1,9 @@
+{
+  "name": "alawneh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^6.3.0"
+  }
+}
