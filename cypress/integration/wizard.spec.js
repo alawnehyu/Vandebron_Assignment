@@ -13,6 +13,7 @@ describe('Test Address entry', () => {
 
     it('TC #1 - should be able to proceed if user filled a valid address correctly', () => {
         cy.fillAddress('1069SE', '12')
+        cy.wait(1000)
         cy.get('.ab-house-1').should('be.visible')// validate next page has apeeared
     })
 
@@ -78,7 +79,7 @@ describe('Test Address entry', () => {
 
         it('TC #8 - should change the style (opacity) while changing the resident', () => {
             const residents = [1, 2, 3, 4, 5] //Indixes for all house type options
-
+            cy.wait(1000)
             cy.get('.ab-house-button-next-step').click({ force: true }) //Select one house type for the next step
             //Below for loop is to make sure that style is being updated while selecting different resident type
             residents.forEach(restident => {

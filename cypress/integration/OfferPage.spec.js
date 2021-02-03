@@ -5,7 +5,7 @@
 
 describe('Test offer Page', () => {
 
-    before(() => {
+    beforeEach(() => {
         cy.viewport('macbook-16')
         cy.visit('https://vandebron.nl')
         cy.get('.cookiebar-button').click({ force: true })
@@ -15,7 +15,7 @@ describe('Test offer Page', () => {
 
 
     it('TC #1 - Make sure offer page has appeared', () => {
-        cy.get('.CarouselPage-header-title > .Text-module__u-font-h2').should('be.visible')
+        cy.get('.CarouselPage-header-title > .Text-module__u-font-h2', { timeout: 20000 }).should('be.visible')
 
     })
 
@@ -64,12 +64,14 @@ describe('Test offer Page', () => {
 
 
     it('TC #7 - Three offers should conatin price box and it should be visible', () => {
-        const boxes = [0, 1, 2]
-        boxes.forEach(box => {
-            cy.get('.optionBlock-content-price').eq(box).should('be.visible')
+        //const boxes = [0, 1, 2]
+        //boxes.forEach(box => {
+        cy.get('.optionBlock-content-price').eq('0').should('be.visible')
+        cy.get('.optionBlock-content-price').eq('1').should('be.visible')
+        cy.get('.optionBlock-content-price').eq('2').should('be.visible')
 
 
-        });
+        //})
 
     })
 

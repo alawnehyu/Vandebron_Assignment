@@ -26,9 +26,11 @@
 
 
 Cypress.Commands.add('fillAddress', (zipCode, houseNumber) => {
-    cy.wait(1000)
+    cy.wait(1000)//Address sometimes need extra time to load properly
     cy.get('[name="submitData.shippingAddress.zipCode"]').type(zipCode, { force: true })
+    cy.wait(1000)
     cy.get('[name="submitData.shippingAddress.number"]').type(houseNumber, { force: true })
+    cy.wait(1000)
     cy.get('button').contains('Bereken je maandbedrag').click({ force: true })
 })
 Cypress.Commands.add('completeWizard', () => {
